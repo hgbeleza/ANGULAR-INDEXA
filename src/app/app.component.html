@@ -1,19 +1,2 @@
 <app-contact-form></app-contact-form>
-
-<app-container>
-  <app-header></app-header>
-
-  <input
-  type="search"
-  placeholder="Digite para buscar"
-  [(ngModel)]="filtroPorTexto"
-  >
-
-  @for (letra of alfabeto; track letra) {
-    <app-separator>{{ letra }}</app-separator>
-
-    @for (contato of filtrarContatosPorLetraInicial(letra); track contato.id) {
-      <app-contact [name]="contato.nome"  [phone]="contato.telefone"></app-contact>
-    }
-  }
-</app-container>
+<app-contact-list></app-contact-list>
