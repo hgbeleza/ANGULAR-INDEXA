@@ -7,6 +7,11 @@
   [(ngModel)]="filtroPorTexto"
   >
 
+  <section class="adicionar-contato">
+    <!-- aaaaaa -->
+    <a routerLink="/form" class="button">Adicionar contato</a>
+  </section>
+
   @for (letra of alfabeto; track letra) {
     <app-separator>{{ letra }}</app-separator>
 

@@ -13,6 +13,7 @@ interface Contact {
 }
 
 import agenda from '../../contact.json';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-contact-list',
@@ -23,7 +24,8 @@ import agenda from '../../contact.json';
     SeparatorComponent,
     ContactComponent,
     FormsModule,
-    ContactFormComponent
+    ContactFormComponent,
+    RouterLink
   ],
   templateUrl: './contact-list.component.html',
   styleUrl: './contact-list.component.css'
