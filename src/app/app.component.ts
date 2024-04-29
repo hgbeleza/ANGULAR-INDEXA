@@ -13,6 +13,7 @@ interface Contact {
 }
 
 import agenda from './contact.json';
+import { ContactFormComponent } from './pages/contact-form/contact-form.component';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +25,7 @@ import agenda from './contact.json';
     SeparatorComponent,
     ContactComponent,
     FormsModule,
+    ContactFormComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

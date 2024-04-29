@@ -1,0 +1,91 @@
+<app-container>
+  <header>
+    <section class="cabecalho-link">
+      <img src="assets/logo.png" alt="indexa logo" />
+    </section>
+    <section class="cabecalho-contato">
+      <img src="assets/Imagens/adicionar-contato.png" alt="" />
+      <h1>Adicionar Contato</h1>
+    </section>
+  </header>
+
+  <form [formGroup]="contactForm" (ngSubmit)="handleContact()">
+    <label for="nome">Nome</label>
+    <input
+      type="text"
+      id="nome"
+      placeholder="Digite o nome do contato"
+      formControlName="nome"
+    />
+    @if(contactForm.get('nome')?.errors && contactForm.get('nome')?.touched) {
+    <div class="mensagem-erro">Campo obrigatório</div>
+    }
+
+    <label for="telefone">Telefone</label>
+    <input
+      type="text"
+      id="telefone"
+      placeholder="Digite o telefone"
+      formControlName="telefone"
+    />
+    @if(contactForm.get('telefone')?.errors &&
+    contactForm.get('telefone')?.touched) {
+    <div class="mensagem-erro">Campo obrigatório</div>
+    }
+
+    <label for="email">E-mail</label>
+    <input
+      type="email"
+      id="email"
+      placeholder="Digite o email"
+      formControlName="email"
+    />
+    @if(contactForm.get('email')?.errors?.['required'] &&
+    contactForm.get('email')?.touched) {
+    <div class="mensagem-erro">Campo obrigatório</div>
+    } @if(contactForm.get('email')?.errors?.['email'] &&
+    contactForm.get('email')?.touched) {
+    <div class="mensagem-erro">Formato de e-mail inválido</div>
+    }
+
+    <app-separator></app-separator>
+
+    <label for="aniversario">Aniversario</label>
+    <input
+      type="date"
+      id="aniversario"
+      placeholder="Data de nascimento"
+      formControlName="aniversario"
+    />
+
+    <label for="redes">Redes sociais</label>
+    <div class="input-container">
+      <span class="span-http">https://</span>
+      <input
+        type="text"
+        id="redes"
+        placeholder="Adicione o URL da página"
+        formControlName="redes"
+      />
+    </div>
+
+    <label>Observação</label>
+    <textarea
+      type="text"
+      id="text-area"
+      placeholder="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti nihil deserunt placeat qui, facilis ipsum vel animi sunt ea. Accusamus."
+      formControlName="observacoes"
+    ></textarea>
+
+    <section class="botoes">
+      <button class="botao-cancelar" type="button">Cancelar</button>
+      <button
+      type="submit"
+      [disabled]="contactForm.invalid"
+      [ngClass]="contactForm.valid ? 'botao-salvar' : 'botao-desabilitado'"
+      >
+        Salvar contato
+      </button>
+    </section>
+  </form>
+</app-container>
